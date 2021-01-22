@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Launch ROS Package Template Node -->
+  <node pkg="husky_sensor_angle" type="husky_sensor_angle" name="husky_sensor_angle" output="screen">
+    <rosparam command="load" file="$(dirname)/../config/default.yaml" />
+  </node>
+
+</launch>
