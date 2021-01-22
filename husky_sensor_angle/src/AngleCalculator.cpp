@@ -12,12 +12,15 @@ RosAngleCalculator::RosAngleCalculator(ros::NodeHandle& nodeHandle)
     ROS_ERROR("Could not read parameters.");
     ros::requestShutdown();
   }
-  subscriber_ = nodeHandle_.subscribe(subscriberTopic_, 1,
-                                      &RosAngleCalculator::topicCallback, this);
+  pos_sub_ = nodeHandle_.subscribe(posSubTopic_, 100,
+                                      &RosAngleCalculator::posCallback, this);
+  scan_sub_ = nodeHandle_.subscribe(scanSubTopic_, 100,
+                                      &RosAngleCalculator::scanCallback, this);
+
   serviceServer_ = nodeHandle_.advertiseService("get_average",
                                                 &RosAngleCalculator::serviceCallback, this);
 
-  angle_pub_ = nodeHandle_.advertise<std_msgs::Float64>("/husky_joint_controller/command", 1, true);
+  angle_pub_ = nodeHandle_.advertise<std_msgs::Float64>("/husky_joint_controller/command", 100, true);
 
   ROS_INFO("Successfully launched node.");
 }
@@ -28,11 +31,12 @@ RosAngleCalculator::~RosAngleCalculator()
 
 bool RosAngleCalculator::readParameters()
 {
-  if (!nodeHandle_.getParam("subscriber_topic", subscriberTopic_)) return false;
+  if (!nodeHandle_.getParam("pos_subscriber_topic", posSubTopic_)) return false;
+  if (!nodeHandle_.getParam("scan_subscriber_topic", scanSubTopic_)) return false;
   return true;
 }
 
-void RosAngleCalculator::topicCallback(const nav_msgs::Path& message)
+void RosAngleCalculator::posCallback(const nav_msgs::Path& message)
 {
   geometry_msgs::PoseStamped pose_in;
   geometry_msgs::PoseStamped pose_out;
@@ -42,9 +46,9 @@ void RosAngleCalculator::topicCallback(const nav_msgs::Path& message)
   {
     tfBuffer_.transform(pose_in,pose_out,"camera_mount",ros::Duration(3.0));
     // ROS_INFO("point of target in frame of camera Position(x:%f y:%f z:%f)\n", 
-      pose_out.pose.position.x,
-      pose_out.pose.position.y,
-      pose_out.pose.position.z);
+      // pose_out.pose.position.x,
+      // pose_out.pose.position.y,
+      // pose_out.pose.position.z);
     x = pose_out.pose.position.x;
     y = pose_out.pose.position.y;
 
@@ -52,6 +56,7 @@ void RosAngleCalculator::topicCallback(const nav_msgs::Path& message)
       angle = atan2(y,x);
       ROS_INFO_STREAM("Target angle:"<<angle);
     }
+
     else{
       angle = 0;
       ROS_INFO_STREAM("Target angle:"<<angle);
@@ -73,6 +78,11 @@ void RosAngleCalculator::topicCallback(const nav_msgs::Path& message)
   // algorithm_.addData(message.poses.end);
 }
 
+
+void RosAngleCalculator::scanCallback(const sensor_msgs::LaserScan& message)
+{
+  
+}
 
 bool RosAngleCalculator::serviceCallback(std_srvs::Trigger::Request& request,
                                          std_srvs::Trigger::Response& response)

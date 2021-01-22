@@ -5,7 +5,7 @@
 
 // ROS
 #include <ros/ros.h>
-#include <sensor_msgs/Temperature.h>
+#include <sensor_msgs/LaserScan.h>
 #include <nav_msgs/Path.h>
 #include <std_srvs/Trigger.h>
 #include <tf2_ros/transform_listener.h>
@@ -45,7 +45,9 @@ class RosAngleCalculator
    * ROS topic callback method.
    * @param message the received message.
    */
-  void topicCallback(const nav_msgs::Path& message);
+  void posCallback(const nav_msgs::Path& message);
+  
+  void scanCallback(const sensor_msgs::LaserScan& message);
 
   /*!
    * ROS service server callback.
@@ -60,11 +62,13 @@ class RosAngleCalculator
   ros::NodeHandle& nodeHandle_;
 
   //! ROS topic subscriber.
-  ros::Subscriber subscriber_;
+  ros::Subscriber pos_sub_;
+  ros::Subscriber scan_sub_;
   ros::Publisher angle_pub_;
 
   //! ROS topic name to subscribe to.
-  std::string subscriberTopic_;
+  std::string posSubTopic_;
+  std::string scanSubTopic_;
 
   //! ROS service server.
   ros::ServiceServer serviceServer_;
