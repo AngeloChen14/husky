@@ -8,6 +8,12 @@
 #include <sensor_msgs/Temperature.h>
 #include <nav_msgs/Path.h>
 #include <std_srvs/Trigger.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/message_filter.h>
+#include <geometry_msgs/TransformStamped.h>
+#include <geometry_msgs/Twist.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include "std_msgs/Float64.h"
 
 namespace ros_sensor_angle {
 
@@ -55,15 +61,17 @@ class RosAngleCalculator
 
   //! ROS topic subscriber.
   ros::Subscriber subscriber_;
+  ros::Publisher angle_pub_;
 
   //! ROS topic name to subscribe to.
   std::string subscriberTopic_;
 
   //! ROS service server.
   ros::ServiceServer serviceServer_;
-
-  //! Algorithm computation object.
-  Algorithm algorithm_;
+  tf2_ros::Buffer tfBuffer_;
+  tf2_ros::TransformListener tfListener_;
+  //Algorithm computation object.  
+  Algorithm algorithm_; 
 };
 
 } /* namespace */

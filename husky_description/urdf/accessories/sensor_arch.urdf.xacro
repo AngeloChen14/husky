@@ -50,15 +50,12 @@
 		</joint>
 	</transmission>
 
-	<!--gazebo>
-		<plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-			<commandTopic>cmd_kinect</commandTopic>
-			<odometryTopic>odom</odometryTopic>
-			<odometryFrame>odom</odometryFrame>
-			<odometryRate>20.0</odometryRate>
-			<robotBaseFrame>${prefix}sensor_arch_mount_link</robotBaseFrame>
-		</plugin>
-	</gazebo-->
+	<link name="${prefix}camera_mount"/>
+	<joint name="${prefix}camera_mount_joint" type="fixed">
+	     <xacro:insert_block name="origin"/>
+	     <parent link="${parent}"/>
+	     <child link="${prefix}camera_mount"/>
+	</joint>
 
     </xacro:macro>
 

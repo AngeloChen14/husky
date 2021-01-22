@@ -37,7 +37,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <include file="$(find husky_viz)/launch/view_robot.launch"/>
   <include file="$(find husky_navigation)/launch/amcl_demo.launch"/>
-
+  
+  <include file="$(find husky_sensor_angle)/launch/angle_control.launch"/>
 
   <node pkg="rosbag" type="play" name="goal_player" output="screen" args=" --pause $(find husky_gazebo)/bag/goal.bag "/> 
 
