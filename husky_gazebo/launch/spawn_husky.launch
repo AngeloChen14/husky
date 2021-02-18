@@ -81,7 +81,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
           <remap from="cloud_in" to="camera/depth/points"/>
           <remap from="scan" to="camera/scan"/>
           <rosparam>
-              target_frame: base_link # Leave empty to output scan in the pointcloud frame
+              target_frame: camera_link # Leave empty to output scan in the pointcloud frame
               tolerance: 1.0
               min_height: 0.05
               max_height: 1.0
@@ -104,7 +104,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
     </group>
 
-    <!-- Spawn robot in gazebo -->
+    <!-- Spawn robot truein gazebo -->
     <node name="spawn_husky_model" pkg="gazebo_ros" type="spawn_model"
         args="-x $(arg x)
               -y $(arg y)

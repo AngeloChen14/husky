@@ -48,6 +48,10 @@ class RosAngleCalculator
   void posCallback(const nav_msgs::Path& message);
   
   void scanCallback(const sensor_msgs::LaserScan& message);
+  double calculateScore(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message, float fov_min, float fov_max, float fov_angle, float laser_min, float laser_max, float laser_incre);
+  void timer1Callback(const ros::TimerEvent& e);
+ 
+
 
   /*!
    * ROS service server callback.
@@ -65,6 +69,8 @@ class RosAngleCalculator
   ros::Subscriber pos_sub_;
   ros::Subscriber scan_sub_;
   ros::Publisher angle_pub_;
+  ros::Publisher score_pub_;
+  ros::Timer timer1_;
 
   //! ROS topic name to subscribe to.
   std::string posSubTopic_;
@@ -76,6 +82,7 @@ class RosAngleCalculator
   tf2_ros::TransformListener tfListener_;
   //Algorithm computation object.  
   Algorithm algorithm_; 
+  nav_msgs::Path nav_msgs_;
+  sensor_msgs::LaserScan laser_msgs_;
 };
-
 } /* namespace */
