@@ -46,11 +46,13 @@ class RosAngleCalculator
    * @param message the received message.
    */
   void posCallback(const nav_msgs::Path& message);
-  
   void scanCallback(const sensor_msgs::LaserScan& message);
-  double calculateScore(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message, float fov_min, float fov_max, float fov_angle, float laser_min, float laser_max, float laser_incre);
   void timer1Callback(const ros::TimerEvent& e);
- 
+
+  double calculateAngle(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message, float fov_angle = 50.0*M_PI/180);
+  double calculateScore(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message, float fov_min=0.4, float fov_max=5.0, float fov_angle=60.0*M_PI/180, // fov parameter(m,m,rad)
+                                                                                                  float laser_min = -0.52, float laser_incre = 0.005);
+
 
 
   /*!
