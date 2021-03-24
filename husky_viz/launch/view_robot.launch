@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
+  <arg name="mapless_simulation" default="false"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen" unless="$(arg mapless_simulation)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot_mapless.rviz" output="screen" if="$(arg mapless_simulation)"/>
 </launch>

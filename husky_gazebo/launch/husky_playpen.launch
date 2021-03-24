@@ -28,13 +28,26 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <arg name="laser_enabled" default="true"/>
   <arg name="kinect_enabled" default="true"/>
   <arg name="joystick" default="false" />
+  <arg name="city_simulation" default="false"/>
 
-  <include file="$(find husky_gazebo)/launch/playpen.launch" />
+  <include file="$(find husky_gazebo)/launch/playpen.launch" >
+    <arg name="city_simulation" value="$(arg city_simulation)"/>
+  </include>
 
-  <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch" unless="$(arg city_simulation)">
     <arg name="laser_enabled" value="$(arg laser_enabled)"/>
     <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
     <arg name="joystick" value="$(arg joystick)" />
+  </include>
+
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch" if="$(arg city_simulation)">
+    <arg name="laser_enabled" value="$(arg laser_enabled)"/>
+    <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+    <arg name="joystick" value="$(arg joystick)" />
+    <arg name="x" default="-20.0"/>
+    <arg name="y" default="-1.9"/>
+    <arg name="z" default="5.01"/>
+    <arg name="yaw" default="0.0"/>
   </include>
 
 </launch>
