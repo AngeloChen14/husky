@@ -15,6 +15,7 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include "std_msgs/Float64.h"
 #include <sensor_msgs/JointState.h>
+#include <gazebo_msgs/GetModelState.h>
 
 namespace ros_sensor_angle {
 
@@ -56,17 +57,20 @@ class RosAngleCalculator
   double calculateAngle_Path(const sensor_msgs::LaserScan& laser_message);
 
   double calculateScore(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message);
-  double calculateScore_Taget(const geometry_msgs::PoseStamped, const sensor_msgs::LaserScan& laser_message);
+  double calculateScore_Target(const geometry_msgs::PoseStamped, const sensor_msgs::LaserScan& laser_message);
   double calculateScore_Path(const nav_msgs::Path& nav_message, const sensor_msgs::LaserScan& laser_message);  
   double calculateScore_Scan(const sensor_msgs::LaserScan& laser_message,float weight_factor);  
+
+  bool getTargetPose();
+  void setNavGoal();
   /*!
    * ROS service server callback.
    * @param request the request of the service.
    * @param response the provided response.
    * @return true if successful, false otherwise.
    */
-  bool serviceCallback(std_srvs::Trigger::Request& request,
-                       std_srvs::Trigger::Response& response);
+  // bool serviceCallback(std_srvs::Trigger::Request& request,
+  //                      std_srvs::Trigger::Response& response);
 
   //! ROS node handle.
   ros::NodeHandle& nodeHandle_;
@@ -77,6 +81,7 @@ class RosAngleCalculator
   ros::Subscriber feedback_sub_;
   ros::Publisher angle_pub_;
   ros::Publisher score_pub_;
+  ros::Publisher nav_pub_;
   ros::Timer timer1_;
 
   //! ROS topic name to subscribe to.
@@ -85,13 +90,15 @@ class RosAngleCalculator
   std::string feedbackSubTopic_;
 
   //! ROS service server.
-  ros::ServiceServer serviceServer_;
+  // ros::ServiceServer serviceServer_;
+  ros::ServiceClient gazeboClient_;
   tf2_ros::Buffer tfBuffer_;
   tf2_ros::TransformListener tfListener_;
   //Algorithm computation object.  
   Algorithm algorithm_; 
   nav_msgs::Path nav_msgs_;
   sensor_msgs::LaserScan laser_msgs_;
+  geometry_msgs::PoseStamped target_pose_;
   double fb_angle_;
 };
 } /* namespace */

@@ -19,6 +19,7 @@ find_package(catkin REQUIRED
     tf2_ros
     message_filters
     tf2_geometry_msgs
+    gazebo_msgs
 )
 
 ## Find system libraries
@@ -48,6 +49,7 @@ catkin_package(
     tf2_ros
     message_filters
     tf2_geometry_msgs
+    gazebo_msgs
   DEPENDS
   ## find_package(Eigen3) provides a non standard EIGEN3_INCLUDE_DIR instead of Eigen3_INCLUDE_DIRS.
   ## Therefore, the DEPEND does not work as expected and we need to add the directory to the INCLUDE_DIRS

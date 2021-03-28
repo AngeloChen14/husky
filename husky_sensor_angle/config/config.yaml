@@ -1,3 +1,4 @@
+# pos_subscriber_topic: /move_base/DWAPlannerROS/global_plan
 pos_subscriber_topic: /move_base/DWAPlannerROS/global_plan
 scan_subscriber_topic: /camera/scan
 feedback_subscriber_topic: /joint_states

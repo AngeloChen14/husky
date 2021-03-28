@@ -21,6 +21,8 @@
   <depend>nav_msgs</depend>
   <depend>message_filters</depend>
   <depend>tf2_geometry_msgs</depend>
+  <depend>gazebo_msgs</depend>
+  
 
   <build_depend>roslint</build_depend>
 </package>

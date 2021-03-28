@@ -25,7 +25,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 -->
 <launch>
 
-  <arg name="mapless_simulation" default="true"/>
+  <arg name="mapless_simulation" default="false"/>
   <arg name="city_simulation" default="false"/>
 
 
