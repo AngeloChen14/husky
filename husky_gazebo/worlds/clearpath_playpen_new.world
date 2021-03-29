@@ -3131,9 +3131,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <static>0</static>
     </model>
     <state world_name='default'>
-      <sim_time>1298 470000000</sim_time>
+      <!-- <sim_time>1298 470000000</sim_time>
       <real_time>1304 307193893</real_time>
-      <wall_time>1412023784 735639465</wall_time>
+      <wall_time>1412023784 735639465</wall_time> -->
+      <sim_time>0 0</sim_time>
+      <real_time>0 0</real_time>
+      <wall_time>0 0</wall_time>
       <model name='Construction Barrel'>
         <pose>7.00006 -2.54635 0.049999 4e-06 -0 0.000401</pose>
         <link name='link'>
@@ -3505,23 +3508,23 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
             <pose>-1 7.2 0 0 0 -0.8</pose>
           </waypoint>
           <waypoint>
-            <time>70</time>
+            <time>80</time>
             <pose>5 -0.5 0 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
-            <time>90</time>
+            <time>100</time>
             <pose>4 -8 0 0 0 -3</pose> 
           </waypoint> 
           <waypoint>
-            <time>105</time>
+            <time>120</time>
             <pose>0.5 -7.5 0 0 0 -4</pose> 
           </waypoint> 
           <waypoint>
-            <time>120</time>
+            <time>140</time>
             <pose>-0.5 -4.5 0 0 0 -4.5</pose> 
           </waypoint> 
           <waypoint>
-            <time>140</time>
+            <time>160</time>
             <pose>-3 0 0 0 0 -3.14</pose> 
           </waypoint> 
         </trajectory>
