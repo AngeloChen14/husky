@@ -179,6 +179,14 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
               <mesh filename="package://husky_description/meshes/top_plate.stl" />
             </geometry>
           </collision>
+        <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.1" />
+          <inertia
+            ixx="0.0" ixy="0.0" ixz="0.0"
+            iyy="0.0" iyz="0.0"
+            izz="0.0" />
+        </inertial>
         </link>
         <!-- Attach top plate -->
         <joint name="top_plate_joint" type="fixed">

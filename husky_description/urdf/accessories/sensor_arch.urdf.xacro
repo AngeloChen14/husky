@@ -7,12 +7,12 @@
         <link name="${prefix}sensor_arch_mount_link">
              <origin xyz="0 0 0" rpy="0 0 0"/>
              <visual>
-		<origin xyz="0 0 -0.27" rpy="0 0 0"/>
+		<origin xyz="0 0 -0.40" rpy="0 0 0"/>
                  <!--geometry>
                      <mesh filename="package://husky_description/meshes/accessories/${size}_mm_sensor_arch.dae" />
                  </geometry-->
 		  <geometry>
-		   <cylinder radius="0.05" length="0.48"/>
+		   <cylinder radius="0.05" length="0.73"/>
 		  </geometry>
 	       	<material name="black"/>
              </visual>
