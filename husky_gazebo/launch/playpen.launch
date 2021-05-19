@@ -29,7 +29,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="world_name" value="$(find husky_gazebo)/worlds/clearpath_playpen_new.world" unless="$(arg city_simulation)"/>
     <!-- <arg name="world_name" value="$(find husky_gazebo)/worlds/willowgarage.world"/> -->
     <arg name="world_name" value="worlds/simple_city.world" if="$(arg city_simulation)"/>
-    <arg name="paused" value="false"/>
+    <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>

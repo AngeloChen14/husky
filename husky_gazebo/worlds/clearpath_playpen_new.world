@@ -2145,7 +2145,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       </link>
       <pose>-9 7.4858 0 0 -0 0</pose>
     </model>
-    <model name='fire_hydrant'>
+    <!-- <model name='fire_hydrant'>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
@@ -2255,7 +2255,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
         <gravity>1</gravity>
       </link>
       <pose>-3 -5 0 0 -0 0</pose>
-    </model>
+    </model> -->
     <model name='Dumpster'>
       <link name='link'>
         <collision name='collision'>
@@ -3272,7 +3272,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='fire_hydrant'>
+      <!-- <model name='fire_hydrant'>
         <pose>3.18024 -6.51118 0 0 -0 0</pose>
         <link name='link'>
           <pose>3.18024 -6.51118 0 0 -0 0</pose>
@@ -3298,7 +3298,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-      </model>
+      </model> -->
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <link name='link'>
@@ -3488,23 +3488,23 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
             <pose>-3 0 0 0 0 3.14</pose>
           </waypoint>
           <waypoint>
-            <time>10</time>
+            <time>15</time>
             <pose>-7 1 0 0 0 2.2</pose>
           </waypoint>
           <waypoint>
-            <time>15</time>
-            <pose>-8 4 0 0 0 1.6</pose>
+            <time>25</time>
+            <pose>-8 4 0 0 0 1.57</pose>
           </waypoint>         
           <waypoint>
-            <time>25</time>
+            <time>35</time>
             <pose>-7.6 7.2 0 0 0 1.0</pose>
           </waypoint>
           <waypoint>
-            <time>35</time>
+            <time>45</time>
             <pose>-5 8.5 0 0 0 0.0</pose>
           </waypoint>
           <waypoint>
-            <time>50</time>
+            <time>55</time>
             <pose>-1 7.2 0 0 0 -0.8</pose>
           </waypoint>
           <waypoint>
@@ -3512,7 +3512,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
             <pose>5 -0.5 0 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
-            <time>100</time>
+            <time>105</time>
             <pose>4 -8 0 0 0 -3</pose> 
           </waypoint> 
           <waypoint>
@@ -3520,11 +3520,11 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
             <pose>0.5 -7.5 0 0 0 -4</pose> 
           </waypoint> 
           <waypoint>
-            <time>140</time>
+            <time>135</time>
             <pose>-0.5 -4.5 0 0 0 -4.5</pose> 
           </waypoint> 
           <waypoint>
-            <time>160</time>
+            <time>150</time>
             <pose>-3 0 0 0 0 -3.14</pose> 
           </waypoint> 
         </trajectory>
@@ -3532,16 +3532,13 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
 
     <actor name="walking_1">
-      <!-- Starting pose -->
       <pose>-3 1.5 1.1 0 0 0.71</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_blue_shirt.dae</filename>
       </skin>
       <animation name="animation">
         <filename>model://actor/meshes/ANIMATION_walking.dae</filename>
-        
           <interpolate_x>true</interpolate_x>
-        
       </animation>
         <script>
           <trajectory id="0" type="animation">
@@ -3550,19 +3547,19 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
                 <pose>-3 1.5 0 0 0 0.71</pose>
               </waypoint>
               <waypoint>
-                <time>8</time>
+                <time>10</time>
                 <pose>2.5 6.3 0 0 0 0.71</pose>
               </waypoint>
               <waypoint>
-                <time>10</time>
+                <time>12</time>
                 <pose>2.5 6.3 0 0 0 3.85</pose>
               </waypoint>
               <waypoint>
-                <time>18</time>
+                <time>22</time>
                 <pose>-3 1.5 0 0 0 3.85</pose>
               </waypoint>
               <waypoint>
-                <time>20</time>
+                <time>24</time>
                 <pose>-3 1.5 0 0 0 0.71</pose>
               </waypoint>
           </trajectory>
@@ -3570,7 +3567,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
       
     <actor name="running_1">
-      <!-- Starting pose -->
       <pose>5 -2.4 1.1 0 0 3.141592653589793</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_red_shirt.dae</filename>
@@ -3590,22 +3586,22 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
               </waypoint>
             
               <waypoint>
-                <time>5.0096742553690286</time>
+                <time>8</time>
                 <pose>-5 -2.4 0 0 0 3.141592653589793</pose>
               </waypoint>
             
               <waypoint>
-                <time>6</time>
+                <time>10</time>
                 <pose>-5 -2.4 0 0 0 0</pose>
               </waypoint>
             
               <waypoint>
-                <time>11</time>
+                <time>18</time>
                 <pose>5 -2.4 0 0 0 0</pose>
               </waypoint>
             
               <waypoint>
-                <time>12</time>
+                <time>20</time>
                 <pose>5 -2.4 0 0 0 3.141592653589793</pose>
               </waypoint>
             
@@ -3614,7 +3610,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
 
     <actor name="talkingA">
-      <!-- Starting pose -->
       <pose>5 3 1.1 0 0 0</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_blue_shirt.dae</filename>
@@ -3638,7 +3633,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
   
     <actor name="talkingB">
-      <!-- Starting pose -->
       <pose>5 3.5 1 0 0 0</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_green_shirt.dae</filename>
@@ -3661,7 +3655,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
 
     <actor name="talkingC">
-      <!-- Starting pose -->
       <pose>-6.3 -4.5 1.1 0 0 0</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_blue_shirt.dae</filename>
@@ -3685,7 +3678,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </actor>
   
     <actor name="talkingD">
-      <!-- Starting pose -->
       <pose>-4.8 -5.9 1 0 0 0</pose>
       <skin>
         <filename>model://actor/meshes/SKIN_man_red_shirt.dae</filename>

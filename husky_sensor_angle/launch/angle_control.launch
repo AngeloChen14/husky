@@ -4,5 +4,5 @@
   <node pkg="husky_sensor_angle" type="husky_sensor_angle" name="husky_sensor_angle" output="screen">
     <rosparam command="load" file="$(dirname)/../config/config.yaml" />
   </node>
-
+  
 </launch>

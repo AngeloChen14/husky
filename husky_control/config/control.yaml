@@ -1,6 +1,6 @@
 husky_joint_publisher:
   type: "joint_state_controller/JointStateController"
-  publish_rate: 50
+  publish_rate: 100
 
 husky_joint_controller:
   type: "position_controllers/JointPositionController"

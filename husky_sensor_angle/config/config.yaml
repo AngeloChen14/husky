@@ -1,4 +1,5 @@
 # pos_subscriber_topic: /move_base/DWAPlannerROS/global_plan
-pos_subscriber_topic: /move_base/DWAPlannerROS/global_plan
+pos_subscriber_topic: /jetson_mot_tracker/body_tracking_data
 scan_subscriber_topic: /camera/scan
 feedback_subscriber_topic: /joint_states
+global_frame: odom

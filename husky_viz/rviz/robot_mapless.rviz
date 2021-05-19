@@ -7,12 +7,10 @@ Panels:
         - /Global Options1
         - /Status1
         - /Sensing1
-        - /Sensing1/LaserScan1
         - /Sensing1/Camera1
         - /Navigation1
-        - /Navigation1/Exploration1
       Splitter Ratio: 0.49492400884628296
-    Tree Height: 306
+    Tree Height: 297
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -71,16 +69,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        base_laser:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_laser_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
@@ -233,8 +221,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: -9999
-            Min Value: 9999
+            Max Value: 0.9950000047683716
+            Min Value: 0.9950000047683716
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -318,7 +306,7 @@ Visualization Manager:
           Image Rendering: background and overlay
           Image Topic: /camera/rgb/image_raw
           Name: Camera
-          Overlay Alpha: 0.5
+          Overlay Alpha: 0.699999988079071
           Queue Size: 2
           Transport Hint: raw
           Unreliable: false
@@ -340,6 +328,7 @@ Visualization Manager:
             Sensing:
               Imu: true
               LaserScan: true
+              MarkerArray: true
               Odometry: true
               PointCloud2: true
               Value: true
@@ -347,6 +336,14 @@ Visualization Manager:
             TwistMarker: true
             Value: true
           Zoom Factor: 1
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /jetson_mot_tracker/body_tracking_data
+          Name: MarkerArray
+          Namespaces:
+            "": true
+          Queue Size: 100
+          Value: true
       Enabled: true
       Name: Sensing
     - Class: rviz/Group
@@ -423,7 +420,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
-          Topic: /move_base/DWAPlannerROS/global_plan
+          Topic: /move_base/TrajectoryPlannerROS/global_plan
           Unreliable: false
           Value: true
         - Alpha: 1
@@ -446,7 +443,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
-          Topic: /move_base/DWAPlannerROS/local_plan
+          Topic: /move_base/TrajectoryPlannerROS/local_plan
           Unreliable: false
           Value: true
       Enabled: true
@@ -477,25 +474,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 46.48176574707031
+      Distance: 40.314937591552734
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -2.596531391143799
-        Y: 1.8790847063064575
-        Z: 5.001954078674316
+        X: 1.778372049331665
+        Y: -0.6957737803459167
+        Z: 5.02388858795166
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5047963857650757
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.1403989791870117
+      Yaw: 1.5653984546661377
     Saved: ~
 Window Geometry:
   Camera:
@@ -505,7 +502,7 @@ Window Geometry:
   Height: 1052
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000018c000003b4fc0200000006fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006200fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000044000001ca000000d600fffffffb0000000c00430061006d0065007200610100000214000001e40000001c00ffffff000000010000010f000002ddfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000043000002dd000000b800fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000030100fffffffb0000000800540069006d00650100000000000004500000000000000000000005ee000003b400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000026c000003b4fc0200000006fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006200fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000044000001c1000000d600fffffffb0000000c00430061006d006500720061010000020b000001ed0000001c00ffffff000000010000010f000002ddfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000043000002dd000000b800fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000052400fffffffb0000000800540069006d006501000000000000045000000000000000000000050e000003b400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
